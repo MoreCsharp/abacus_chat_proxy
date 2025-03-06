@@ -22,11 +22,11 @@ EXPOSE 9876
 # 运行 Flask 应用 (使用 gunicorn 作为生产环境的 WSGI 服务器)
 # 脚本中是直接使用 `python3 app.py` 启动, 这里改用 gunicorn
 # 如果你坚持使用 `python3 app.py`，请删除下面这行，并取消下一行（CMD 那行）的注释
-RUN pip3 install gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:9876", "app:app"]
+# RUN pip3 install gunicorn
+# CMD ["gunicorn", "--bind", "0.0.0.0:9876", "app:app"]
 
 # 如果你确定要使用 `python3 app.py` 来启动，请取消下面这行的注释，并删除上面两行（RUN 和 CMD）
-# CMD ["python3", "app.py"]
+CMD ["python3", "app.py"]
 
 # 添加对信号的处理，使容器可以优雅地停止（可选，但推荐）
 STOPSIGNAL SIGTERM
